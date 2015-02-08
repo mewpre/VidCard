@@ -10,4 +10,6 @@
 
 @interface RecordVideoViewController : UIViewController
 
+@property UIImage *photoImage;
+
 @end

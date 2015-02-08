@@ -8,18 +8,22 @@
 
 #import "TakePhotoViewController.h"
 #import <AVFoundation/AVFoundation.h>
+#import <Parse/Parse.h>
+#import "RecordVideoViewController.h"
 
 @interface TakePhotoViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property UIImagePickerController *imagePicker;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property UIImage *photoImage;
+@property PFObject *currentPhoto;
 @end
 
 @implementation TakePhotoViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.imagePicker = [[UIImagePickerController alloc]init];
     self.imagePicker.delegate = self;
 
@@ -46,6 +50,12 @@
     }];
 
 }
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    RecordVideoViewController *vc = segue.destinationViewController;
+    vc.photoImage = self.photoImage;
+}
+
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     UIImage *image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];

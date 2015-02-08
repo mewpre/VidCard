@@ -7,6 +7,7 @@
 //
 
 #import "ConfirmViewController.h"
+#import <Parse/Parse.h>
 
 @interface ConfirmViewController ()
 
@@ -18,11 +19,28 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
+- (IBAction)onDoneButtonPressed:(UIBarButtonItem *)sender
+{
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    NSData *imageData = UIImagePNGRepresentation(self.photoImage);
+    PFFile *imageFile = [PFFile fileWithName:@"Photo.png" data:imageData];
+    [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
+     {
+         if (!error)
+         {
+             NSLog(@"merpppp");
+             PFObject *photoObject = [PFObject objectWithClassName:@"Photo"];
+             photoObject[@"imageFile"] = imageFile;
+             [photoObject setObject:[PFUser currentUser] forKey:@"createdBy"];
+             [photoObject saveInBackground];
+
+             
+         }
+     }];
+
 }
+
+
 
 /*
 #pragma mark - Navigation

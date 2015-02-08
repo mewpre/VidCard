@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6724" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="994-gg-cMk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="994-gg-cMk">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6711"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
         <!--Scan View Controller-->
@@ -180,7 +180,7 @@
         <!--Confirm View Controller-->
         <scene sceneID="W18-wC-jpg">
             <objects>
-                <viewController title="Confirm View Controller" id="gLH-Rs-3GV" customClass="ConfirmVideoViewController" sceneMemberID="viewController">
+                <viewController title="Confirm View Controller" id="gLH-Rs-3GV" customClass="ConfirmViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VI2-od-zvP"/>
                         <viewControllerLayoutGuide type="bottom" id="I8M-sh-JHJ"/>
@@ -199,7 +199,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="HRW-bg-lXY">
-                        <barButtonItem key="rightBarButtonItem" title="✅" id="F0U-8M-3jq"/>
+                        <barButtonItem key="rightBarButtonItem" title="✅" id="F0U-8M-3jq">
+                            <connections>
+                                <action selector="onDoneButtonPressed:" destination="gLH-Rs-3GV" id="G6X-ud-YhB"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="or4-0R-jSA" userLabel="First Responder" sceneMemberID="firstResponder"/>

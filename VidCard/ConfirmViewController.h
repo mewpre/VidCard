@@ -10,4 +10,7 @@
 
 @interface ConfirmViewController : UIViewController
 
+@property UIImage *photoImage;
+@property NSString *url;
+
 @end

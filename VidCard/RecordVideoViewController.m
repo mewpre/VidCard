@@ -10,6 +10,7 @@
 #import "AddURLViewController.h"
 #import <MediaPlayer/MediaPlayer.h> 
 #import <MobileCoreServices/MobileCoreServices.h>
+#import "ConfirmViewController.h"
 
 
 @interface RecordVideoViewController ()<UIImagePickerControllerDelegate,UINavigationBarDelegate>
@@ -23,7 +24,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
 
 - (IBAction)onCameraButtonTapped:(UIButton *)sender
@@ -53,6 +53,13 @@
     [self.view addSubview:self.videoController.view];
 
     [self.videoController play];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    ConfirmViewController *vc = segue.destinationViewController;
+    vc.photoImage = self.photoImage;
+    vc.url = self.addedVideoURL;
 }
 
 #pragma mark UNWIND
