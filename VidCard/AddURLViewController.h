@@ -10,6 +10,8 @@
 
 @interface AddURLViewController : UIViewController
 
+@property UIImage *photoImage; 
 - (NSString *)addedURL;
+- (UIImage *)addedPhotoImage;
 
 @end

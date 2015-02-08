@@ -57,9 +57,17 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    ConfirmViewController *vc = segue.destinationViewController;
-    vc.photoImage = self.photoImage;
-    vc.url = self.addedVideoURL;
+    if ([segue.identifier isEqualToString:@"ConfirmSegue"])
+    {
+        ConfirmViewController *vc = segue.destinationViewController;
+        vc.photoImage = self.photoImage;
+        vc.url = self.addedVideoURL;
+    }
+    else if ([segue.identifier isEqualToString:@"AddURLViewController"])
+    {
+        AddURLViewController *auvc = segue.destinationViewController;
+        auvc.photoImage = self.photoImage;
+    }
 }
 
 #pragma mark UNWIND
@@ -69,6 +77,7 @@
 {
     AddURLViewController *addUVC = segue.sourceViewController;
     self.addedVideoURL = [addUVC addedURL];
+    self.photoImage = [addUVC addedPhotoImage];
 }
 
 @end

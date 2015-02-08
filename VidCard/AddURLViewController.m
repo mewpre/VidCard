@@ -44,6 +44,11 @@
     return self.urlTextField.text;
 }
 
+- (UIImage *)addedPhotoImage
+{
+    return self.photoImage;
+}
+
 #pragma mark WEBVIEW DELEGATES
 
 // Loads an andress on the webview
