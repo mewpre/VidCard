@@ -37,7 +37,12 @@
              PFObject *photoObject = [PFObject objectWithClassName:@"Photo"];
              photoObject[@"imageFile"] = imageFile;
              [photoObject setObject:[PFUser currentUser] forKey:@"user"];
-             [photoObject saveInBackground];
+             [photoObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                 PFObject *videoObject = [PFObject objectWithClassName:@"Video"];
+                 videoObject[@"videoURL"] = self.url;
+                 videoObject[@"photo"] = photoObject;
+                 [videoObject saveInBackground];
+             }];
              self.tabBarController.selectedIndex = 1;
          }
      }];

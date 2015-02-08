@@ -26,6 +26,7 @@
     [super viewDidLoad];
 
     self.arrayOfImages = [NSMutableArray new];
+    [self getAllPhotosByUser];
 }
 
 - (void)viewWillAppear:(BOOL)animated
