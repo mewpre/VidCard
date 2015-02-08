@@ -7,8 +7,11 @@
 //
 
 #import "ProfileViewController.h"
+#import "SelectedVidCardViewController.h"
 
-@interface ProfileViewController ()
+@interface ProfileViewController () <UITableViewDataSource, UITableViewDelegate>
+@property UIImage *selectedImage;
+@property NSArray *arrayOfImages;
 
 @end
 
@@ -16,22 +19,33 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.arrayOfImages = [NSArray arrayWithObjects:@"http://www.deejstuff.com/images/cherryButterfly.png", @"http://upload.wikimedia.org/wikipedia/commons/9/93/Hemerocallis_lilioasphodelus_flower.jpg", nil];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark TABLE VIEW
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.arrayOfImages.count;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    NSURL *url = [NSURL URLWithString:self.arrayOfImages[indexPath.row]];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    UIImage *image = [UIImage imageWithData:data];
+    self.selectedImage = image;
+    cell.imageView.image = image;
+    return cell;
 }
-*/
+
+#pragma mark SEGUE
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    SelectedVidCardViewController *selectedVCVC = [segue destinationViewController];
+    selectedVCVC.image = self.selectedImage;
+}
 
 @end
