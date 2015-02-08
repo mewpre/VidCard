@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="994-gg-cMk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6724" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="994-gg-cMk">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6711"/>
     </dependencies>
     <scenes>
         <!--Scan View Controller-->
@@ -84,6 +84,9 @@
                                 <state key="normal" title="🎥">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="onCameraButtonTapped:" destination="unl-IG-AkV" eventType="touchUpInside" id="a1v-bT-qVK"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -95,10 +98,84 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="Xg5-ga-2Vr" kind="modal" identifier="AddURLSegue" id="WLd-6J-c86"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tYl-IS-5VK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1807" y="311"/>
+        </scene>
+        <!--AddURL View Controller-->
+        <scene sceneID="EpP-7L-DWp">
+            <objects>
+                <viewController id="Xg5-ga-2Vr" customClass="AddURLViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="42N-vT-LRx"/>
+                        <viewControllerLayoutGuide type="bottom" id="8lY-7Z-DKt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tJJ-13-DOl">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="https://www.youtube.com/watch?v=aJGXsVHkhrk&amp;list=PL86F4D497FD3CACCE" borderStyle="roundedRect" placeholder="http://www.youtube.com/yourvideo" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="poU-8O-O5b">
+                                <rect key="frame" x="16" y="58" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="URL"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Xg5-ga-2Vr" id="UAE-Zy-QB8"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Insert Video URL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aYy-ai-SH8">
+                                <rect key="frame" x="95" y="24" width="130" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nrk-7n-Tnm">
+                                <rect key="frame" x="16" y="20" width="30" height="30"/>
+                                <state key="normal" title="❎">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onCloseButtonTapped:" destination="Xg5-ga-2Vr" eventType="touchUpInside" id="toc-jD-Bj4"/>
+                                </connections>
+                            </button>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cWs-0t-yxR">
+                                <rect key="frame" x="20" y="106" width="280" height="200"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Xg5-ga-2Vr" id="Aky-Ks-9Fk"/>
+                                </connections>
+                            </webView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Er4-oG-wQg">
+                                <rect key="frame" x="284" y="25" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jsg-TR-hi6">
+                                <rect key="frame" x="258" y="20" width="46" height="30"/>
+                                <color key="backgroundColor" red="0.20276521381578946" green="0.73630242598684215" blue="0.20816200657894737" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Use">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="I7I-YU-TUn" kind="unwind" unwindAction="unwindFromAddURL:" id="CzC-oe-dR7"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="spinner" destination="Er4-oG-wQg" id="CFT-8s-Mnc"/>
+                        <outlet property="urlTextField" destination="poU-8O-O5b" id="RU9-ZB-tmG"/>
+                        <outlet property="useButton" destination="jsg-TR-hi6" id="PF8-uH-f41"/>
+                        <outlet property="webView" destination="cWs-0t-yxR" id="BDE-YU-vbh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qpZ-ja-Zgu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="I7I-YU-TUn" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1807" y="1005"/>
         </scene>
         <!--Confirm View Controller-->
         <scene sceneID="W18-wC-jpg">

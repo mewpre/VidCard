@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18707E7B1A8751290035D78B /* AddURLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18707E7A1A8751290035D78B /* AddURLViewController.m */; };
 		62978FA51A86BCE400E3E3F4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 62978FA41A86BCE400E3E3F4 /* main.m */; };
 		62978FA81A86BCE400E3E3F4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 62978FA71A86BCE400E3E3F4 /* AppDelegate.m */; };
 		62978FAB1A86BCE400E3E3F4 /* VidCard.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 62978FA91A86BCE400E3E3F4 /* VidCard.xcdatamodeld */; };
@@ -38,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		18707E791A8751290035D78B /* AddURLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddURLViewController.h; sourceTree = "<group>"; };
+		18707E7A1A8751290035D78B /* AddURLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddURLViewController.m; sourceTree = "<group>"; };
 		62978F9F1A86BCE400E3E3F4 /* VidCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VidCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62978FA31A86BCE400E3E3F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		62978FA41A86BCE400E3E3F4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -73,9 +76,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62978FE01A86C7B000E3E3F4 /* MediaPlayer.framework in Frameworks */,
 				62978FE41A86C7C000E3E3F4 /* QuartzCore.framework in Frameworks */,
 				62978FE21A86C7B700E3E3F4 /* MobileCoreServices.framework in Frameworks */,
-				62978FE01A86C7B000E3E3F4 /* MediaPlayer.framework in Frameworks */,
 				62978FDE1A86C7AA00E3E3F4 /* CoreMedia.framework in Frameworks */,
 				62978FDC1A86C7A300E3E3F4 /* AVFoundation.framework in Frameworks */,
 				62978FDA1A86C79B00E3E3F4 /* AssetsLibrary.framework in Frameworks */,
@@ -178,6 +181,8 @@
 				62978FEF1A86E0D100E3E3F4 /* ProfileViewController.m */,
 				62978FEB1A86E0C300E3E3F4 /* ConfirmViewController.h */,
 				62978FEC1A86E0C300E3E3F4 /* ConfirmViewController.m */,
+				18707E791A8751290035D78B /* AddURLViewController.h */,
+				18707E7A1A8751290035D78B /* AddURLViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -289,6 +294,7 @@
 				62978FAE1A86BCE400E3E3F4 /* ScanViewController.m in Sources */,
 				62978FA51A86BCE400E3E3F4 /* main.m in Sources */,
 				62978FEA1A86E0B000E3E3F4 /* RecordVideoViewController.m in Sources */,
+				18707E7B1A8751290035D78B /* AddURLViewController.m in Sources */,
 				62978FED1A86E0C300E3E3F4 /* ConfirmViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -480,6 +486,7 @@
 				62978FC71A86BCE400E3E3F4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		62978FC81A86BCE400E3E3F4 /* Build configuration list for PBXNativeTarget "VidCardTests" */ = {
 			isa = XCConfigurationList;
@@ -488,6 +495,7 @@
 				62978FCA1A86BCE400E3E3F4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

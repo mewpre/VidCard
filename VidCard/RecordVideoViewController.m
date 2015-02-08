@@ -7,18 +7,15 @@
 //
 
 #import "RecordVideoViewController.h"
+#import "AddURLViewController.h"
 #import <MediaPlayer/MediaPlayer.h> 
-#import <MobileCoreServices/MobileCoreServices.h> 
+#import <MobileCoreServices/MobileCoreServices.h>
 
 
 @interface RecordVideoViewController ()<UIImagePickerControllerDelegate,UINavigationBarDelegate>
 @property NSURL *videoURL;
 @property MPMoviePlayerController *videoController;
-
-
-
-
-
+@property NSString *addedVideoURL;
 
 @end
 
@@ -27,6 +24,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+}
+
+- (IBAction)onCameraButtonTapped:(UIButton *)sender
+{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *addURLAction = [UIAlertAction actionWithTitle:@"Add URL to Video" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        [self performSegueWithIdentifier: @"AddURLSegue" sender: self];
+    }];
+//    UIAlertAction *recordVideoAction = [UIAlertAction actionWithTitle:@"Record Video" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+//    }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:nil];
+    [alertController addAction:addURLAction];
+//    [alertController addAction:recordVideoAction];
+    [alertController addAction:cancelAction];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
@@ -43,5 +55,13 @@
     [self.videoController play];
 }
 
+#pragma mark UNWIND
+
+// Gets the newly added url from the modal that popped up
+- (IBAction)unwindFromAddURL:(UIStoryboardSegue *)segue
+{
+    AddURLViewController *addUVC = segue.sourceViewController;
+    self.addedVideoURL = [addUVC addedURL];
+}
 
 @end
