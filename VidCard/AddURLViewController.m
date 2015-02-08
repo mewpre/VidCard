@@ -24,6 +24,8 @@
 
     self.spinner.hidden = YES;
     self.useButton.hidden = YES;
+    self.webView.hidden = YES;
+
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -31,6 +33,7 @@
 //    BOOL urlValidate = [self validateUrl:textField.text];
     BOOL urlValidate = true;
     if (urlValidate) {
+        self.webView.hidden = NO;
         [self loadWebPageWithAddress:textField.text];
     }
     else {

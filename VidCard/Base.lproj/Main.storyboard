@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6724" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="994-gg-cMk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="994-gg-cMk">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6711"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Take Photo View Controller-->
@@ -16,12 +17,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nAg-kU-NMG">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ombreWall" translatesAutoresizingMaskIntoConstraints="NO" id="nAg-kU-NMG">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="568" id="0uP-u2-vNr"/>
+                                    <constraint firstAttribute="width" constant="320" id="G8k-Ui-47Y"/>
+                                </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MST-zM-nD7">
-                                <rect key="frame" x="16" y="459" width="62" height="52"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="37"/>
+                                <rect key="frame" x="115" y="232" width="90" height="103"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="54"/>
                                 <state key="normal" title="📷">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -31,6 +36,12 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nAg-kU-NMG" firstAttribute="leading" secondItem="jo8-lM-pWa" secondAttribute="leading" id="7Z4-WS-8dJ"/>
+                            <constraint firstItem="nAg-kU-NMG" firstAttribute="top" secondItem="jo8-lM-pWa" secondAttribute="top" id="JZl-ce-ObA"/>
+                            <constraint firstAttribute="trailing" secondItem="nAg-kU-NMG" secondAttribute="trailing" id="T0g-17-2Ld"/>
+                            <constraint firstAttribute="bottom" secondItem="nAg-kU-NMG" secondAttribute="bottom" id="bGw-pG-QAo"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="RBK-wq-qjc">
                         <barButtonItem key="rightBarButtonItem" title="✅" id="Szs-ZQ-1kN">
@@ -59,10 +70,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ombreWall" translatesAutoresizingMaskIntoConstraints="NO" id="Wax-t8-H8o">
+                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qxs-Bk-KdB">
-                                <rect key="frame" x="134" y="90" width="52" height="61"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <state key="normal" title="🎥">
+                                <rect key="frame" x="113" y="244" width="95" height="95"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="54"/>
+                                <state key="normal" title="📼">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -71,6 +85,12 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rnM-yo-Jho" firstAttribute="top" secondItem="Wax-t8-H8o" secondAttribute="bottom" id="22Q-K6-Jie"/>
+                            <constraint firstItem="Wax-t8-H8o" firstAttribute="top" secondItem="Dkr-m8-El9" secondAttribute="bottom" id="6oO-oq-6Xq"/>
+                            <constraint firstItem="Wax-t8-H8o" firstAttribute="leading" secondItem="2jv-dD-OGX" secondAttribute="leading" id="ISI-79-9vR"/>
+                            <constraint firstAttribute="trailing" secondItem="Wax-t8-H8o" secondAttribute="trailing" id="tqH-mO-XNg"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add" id="GOK-rD-Xib">
                         <barButtonItem key="rightBarButtonItem" title="✅" id="iCn-HA-X52">
@@ -99,6 +119,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ombreWall" translatesAutoresizingMaskIntoConstraints="NO" id="y84-Ae-mG9">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="https://www.youtube.com/watch?v=aJGXsVHkhrk&amp;list=PL86F4D497FD3CACCE" borderStyle="roundedRect" placeholder="http://www.youtube.com/yourvideo" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="poU-8O-O5b">
                                 <rect key="frame" x="16" y="58" width="288" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -113,8 +136,12 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nrk-7n-Tnm">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nrk-7n-Tnm">
                                 <rect key="frame" x="16" y="20" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="uoo-1Y-Y5p"/>
+                                    <constraint firstAttribute="width" constant="30" id="zGl-6w-gaM"/>
+                                </constraints>
                                 <state key="normal" title="❎">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -132,9 +159,13 @@
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Er4-oG-wQg">
                                 <rect key="frame" x="284" y="25" width="20" height="20"/>
                             </activityIndicatorView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jsg-TR-hi6">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jsg-TR-hi6">
                                 <rect key="frame" x="258" y="20" width="46" height="30"/>
-                                <color key="backgroundColor" red="0.20276521381578946" green="0.73630242598684215" blue="0.20816200657894737" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.29948750969999999" green="0.99286183900000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="Rfy-A4-4nf"/>
+                                    <constraint firstAttribute="height" constant="30" id="qgU-go-NT8"/>
+                                </constraints>
                                 <state key="normal" title="Use">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -145,6 +176,16 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jsg-TR-hi6" firstAttribute="trailing" secondItem="tJJ-13-DOl" secondAttribute="trailingMargin" id="0cL-8E-Jux"/>
+                            <constraint firstItem="y84-Ae-mG9" firstAttribute="leading" secondItem="tJJ-13-DOl" secondAttribute="leading" id="5S3-UJ-mFs"/>
+                            <constraint firstItem="Nrk-7n-Tnm" firstAttribute="top" secondItem="42N-vT-LRx" secondAttribute="bottom" id="GJu-qM-6rZ"/>
+                            <constraint firstItem="y84-Ae-mG9" firstAttribute="top" secondItem="tJJ-13-DOl" secondAttribute="top" id="LPL-8X-Due"/>
+                            <constraint firstItem="Nrk-7n-Tnm" firstAttribute="leading" secondItem="tJJ-13-DOl" secondAttribute="leadingMargin" id="auG-i4-W7P"/>
+                            <constraint firstAttribute="trailing" secondItem="y84-Ae-mG9" secondAttribute="trailing" id="siQ-hn-w7e"/>
+                            <constraint firstItem="jsg-TR-hi6" firstAttribute="top" secondItem="42N-vT-LRx" secondAttribute="bottom" id="vl3-9a-RQo"/>
+                            <constraint firstItem="8lY-7Z-DKt" firstAttribute="top" secondItem="y84-Ae-mG9" secondAttribute="bottom" id="zEj-Kf-xE2"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="spinner" destination="Er4-oG-wQg" id="CFT-8s-Mnc"/>
@@ -170,16 +211,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ombreWall" translatesAutoresizingMaskIntoConstraints="NO" id="4qh-OS-SPa">
+                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xMt-Dc-6sg">
                                 <rect key="frame" x="0.0" y="64" width="320" height="222"/>
                             </imageView>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wi6-y1-umV">
-                                <rect key="frame" x="31" y="311" width="280" height="200"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </webView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="lef-er-Hvc">
                                 <rect key="frame" x="153" y="392" width="37" height="37"/>
                             </activityIndicatorView>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wi6-y1-umV">
+                                <rect key="frame" x="20" y="311" width="280" height="200"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -210,7 +254,7 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" id="fqK-6n-Mna">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="barTintColor" red="0.41619551809999999" green="0.74917763159999995" blue="1" alpha="0.82999999999999996" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.29948750969999999" green="0.99286183900000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="selectedImageTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
@@ -276,14 +320,18 @@
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="IEF-F4-hbb">
                                 <rect key="frame" x="0.0" y="218" width="320" height="301"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" red="0.29948750969999999" green="0.99286183900000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="MO6-SC-Lds">
                                     <size key="itemSize" width="100" height="100"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
+                                <imageView key="backgroundView" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ombreWall" id="LES-nP-fNe">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="301"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </imageView>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProfileCell" id="EGc-Ma-w4e" customClass="CustomCollectionViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -324,6 +372,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Your Profile" id="O9o-iF-t5D">
                         <barButtonItem key="rightBarButtonItem" title="Log Out" id="o1l-Yn-TLC">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="onLogoutButtonPressed:" destination="9j6-TO-mBq" id="2Oe-IY-d3O"/>
                             </connections>
@@ -391,7 +440,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="jaW-Fo-eYF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.41619551809210525" green="0.74917763157894723" blue="1" alpha="0.83000000000000007" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
@@ -414,7 +463,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="wnh-hB-YC9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.41619551809999999" green="0.74917763159999995" blue="1" alpha="0.82999999999999996" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
@@ -432,6 +481,7 @@
     <resources>
         <image name="EmptyProfilePictureWhite" width="70" height="70"/>
         <image name="SF" width="346" height="146"/>
+        <image name="ombreWall" width="767" height="768"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
