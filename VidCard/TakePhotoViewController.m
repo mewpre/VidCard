@@ -10,8 +10,9 @@
 #import <AVFoundation/AVFoundation.h>
 #import <Parse/Parse.h>
 #import "RecordVideoViewController.h"
+#import "MyLoginViewController.h"
 
-@interface TakePhotoViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface TakePhotoViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 
 @property UIImagePickerController *imagePicker;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -26,7 +27,37 @@
     
     self.imagePicker = [[UIImagePickerController alloc]init];
     self.imagePicker.delegate = self;
+}
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self login];
+}
+
+- (void)login {
+    if (![PFUser currentUser])
+    {
+
+        MyLoginViewController *loginViewController = [[MyLoginViewController alloc]init];
+        [loginViewController setDelegate:self];
+
+        PFSignUpViewController *signUpViewController = [[PFSignUpViewController alloc]init];
+        [signUpViewController setDelegate:self];
+
+        [loginViewController setSignUpController:signUpViewController];
+
+        [self presentViewController:loginViewController animated:YES completion:nil];
+    }
+}
+
+-(void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)logInViewControllerDidCancelLogIn:(PFLogInViewController *)logInController
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)onCameraButtonPressed:(UIButton *)sender
@@ -62,6 +93,18 @@
     self.imageView.image = image;
     self.photoImage = image;
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark LOGIN STUFF
+
+-(BOOL)logInViewController:(PFLogInViewController *)logInController shouldBeginLogInWithUsername:(NSString *)username password:(NSString *)password
+{
+    if (username && password && username.length != 0 && password.length != 0)
+    {
+        return YES;
+    }
+    [[[UIAlertView alloc]initWithTitle:@"Missing Information!" message:@"Make sure you fill out all the information, please!" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil]show];
+    return NO;
 }
 
 @end

@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		180327221A878DDF00359D3A /* MyLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 180327211A878DDF00359D3A /* MyLoginViewController.m */; };
 		18707E7B1A8751290035D78B /* AddURLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18707E7A1A8751290035D78B /* AddURLViewController.m */; };
 		18707E841A87738E0035D78B /* SelectedVidCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18707E831A87738E0035D78B /* SelectedVidCardViewController.m */; };
 		62978FA51A86BCE400E3E3F4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 62978FA41A86BCE400E3E3F4 /* main.m */; };
 		62978FA81A86BCE400E3E3F4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 62978FA71A86BCE400E3E3F4 /* AppDelegate.m */; };
 		62978FAB1A86BCE400E3E3F4 /* VidCard.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 62978FA91A86BCE400E3E3F4 /* VidCard.xcdatamodeld */; };
-		62978FAE1A86BCE400E3E3F4 /* ScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62978FAD1A86BCE400E3E3F4 /* ScanViewController.m */; };
 		62978FB11A86BCE400E3E3F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62978FAF1A86BCE400E3E3F4 /* Main.storyboard */; };
 		62978FB31A86BCE400E3E3F4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62978FB21A86BCE400E3E3F4 /* Images.xcassets */; };
 		62978FB61A86BCE400E3E3F4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62978FB41A86BCE400E3E3F4 /* LaunchScreen.xib */; };
@@ -62,6 +62,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		180327201A878DDF00359D3A /* MyLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLoginViewController.h; sourceTree = "<group>"; };
+		180327211A878DDF00359D3A /* MyLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLoginViewController.m; sourceTree = "<group>"; };
 		18707E791A8751290035D78B /* AddURLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddURLViewController.h; sourceTree = "<group>"; };
 		18707E7A1A8751290035D78B /* AddURLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddURLViewController.m; sourceTree = "<group>"; };
 		18707E821A87738E0035D78B /* SelectedVidCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedVidCardViewController.h; sourceTree = "<group>"; };
@@ -72,8 +74,6 @@
 		62978FA61A86BCE400E3E3F4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		62978FA71A86BCE400E3E3F4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		62978FAA1A86BCE400E3E3F4 /* VidCard.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VidCard.xcdatamodel; sourceTree = "<group>"; };
-		62978FAC1A86BCE400E3E3F4 /* ScanViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScanViewController.h; sourceTree = "<group>"; };
-		62978FAD1A86BCE400E3E3F4 /* ScanViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScanViewController.m; sourceTree = "<group>"; };
 		62978FB01A86BCE400E3E3F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		62978FB21A86BCE400E3E3F4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		62978FB51A86BCE400E3E3F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -235,8 +235,8 @@
 		62978FD81A86C5A100E3E3F4 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				62978FAC1A86BCE400E3E3F4 /* ScanViewController.h */,
-				62978FAD1A86BCE400E3E3F4 /* ScanViewController.m */,
+				180327201A878DDF00359D3A /* MyLoginViewController.h */,
+				180327211A878DDF00359D3A /* MyLoginViewController.m */,
 				62978FE51A86E0A200E3E3F4 /* TakePhotoViewController.h */,
 				62978FE61A86E0A200E3E3F4 /* TakePhotoViewController.m */,
 				62978FE81A86E0B000E3E3F4 /* RecordVideoViewController.h */,
@@ -397,10 +397,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				62978FE71A86E0A200E3E3F4 /* TakePhotoViewController.m in Sources */,
+				180327221A878DDF00359D3A /* MyLoginViewController.m in Sources */,
 				62978FAB1A86BCE400E3E3F4 /* VidCard.xcdatamodeld in Sources */,
 				62978FF01A86E0D100E3E3F4 /* ProfileViewController.m in Sources */,
 				62978FA81A86BCE400E3E3F4 /* AppDelegate.m in Sources */,
-				62978FAE1A86BCE400E3E3F4 /* ScanViewController.m in Sources */,
 				18707E841A87738E0035D78B /* SelectedVidCardViewController.m in Sources */,
 				62978FA51A86BCE400E3E3F4 /* main.m in Sources */,
 				62978FEA1A86E0B000E3E3F4 /* RecordVideoViewController.m in Sources */,

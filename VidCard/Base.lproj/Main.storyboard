@@ -1,28 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="994-gg-cMk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6724" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="994-gg-cMk">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6711"/>
     </dependencies>
     <scenes>
-        <!--Scan View Controller-->
-        <scene sceneID="ufC-wZ-h7g">
-            <objects>
-                <viewController title="Scan View Controller" id="vXZ-lx-hvc" customClass="ScanViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
-                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" systemItem="favorites" id="RfO-md-p4D"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="694" y="320"/>
-        </scene>
         <!--Take Photo View Controller-->
         <scene sceneID="Dh5-dH-oER">
             <objects>
@@ -64,7 +45,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oR4-cN-pyb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1431" y="311"/>
+            <point key="canvasLocation" x="536" y="919"/>
         </scene>
         <!--Record Video View Controller-->
         <scene sceneID="c0q-RS-u0Z">
@@ -104,7 +85,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tYl-IS-5VK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1807" y="311"/>
+            <point key="canvasLocation" x="536" y="1619"/>
         </scene>
         <!--AddURL View Controller-->
         <scene sceneID="EpP-7L-DWp">
@@ -175,7 +156,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qpZ-ja-Zgu" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="I7I-YU-TUn" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1807" y="1005"/>
+            <point key="canvasLocation" x="244" y="2339"/>
         </scene>
         <!--Confirm View Controller-->
         <scene sceneID="W18-wC-jpg">
@@ -208,7 +189,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="or4-0R-jSA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2207" y="311"/>
+            <point key="canvasLocation" x="839" y="2347"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="cNM-QB-ggk">
@@ -222,14 +203,13 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="viewControllers" id="e6h-Nh-1Qd"/>
                         <segue destination="Qgg-sz-GIY" kind="relationship" relationship="viewControllers" id="UHT-K4-Doa"/>
                         <segue destination="T5I-79-b4M" kind="relationship" relationship="viewControllers" id="XzT-yu-b06"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aHJ-aK-qNo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="933" y="-597"/>
+            <point key="canvasLocation" x="873" y="-597"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="aq1-m1-OqH">
@@ -266,11 +246,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Your Profile" id="O9o-iF-t5D"/>
+                    <navigationItem key="navigationItem" title="Your Profile" id="O9o-iF-t5D">
+                        <barButtonItem key="rightBarButtonItem" title="Log Out" id="o1l-Yn-TLC">
+                            <connections>
+                                <action selector="onLogoutButtonPressed:" destination="9j6-TO-mBq" id="2Oe-IY-d3O"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AqD-46-ql1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1885" y="-597"/>
+            <point key="canvasLocation" x="1131" y="919"/>
         </scene>
         <!--Selected Vid Card View Controller-->
         <scene sceneID="wgx-5r-2M3">
@@ -306,7 +292,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pts-Yx-mo3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2278" y="-597"/>
+            <point key="canvasLocation" x="1131" y="1635"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3ca-wE-sYw">
@@ -325,7 +311,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nle-hb-Fgb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1038" y="311"/>
+            <point key="canvasLocation" x="536" y="223"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3cY-SG-8p1">
@@ -344,7 +330,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PF2-AF-FfO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1353" y="-597"/>
+            <point key="canvasLocation" x="1131" y="223"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
