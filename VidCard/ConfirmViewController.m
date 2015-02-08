@@ -9,7 +9,10 @@
 #import "ConfirmViewController.h"
 #import <Parse/Parse.h>
 
-@interface ConfirmViewController ()
+@interface ConfirmViewController () <UIWebViewDelegate>
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
 @end
 
@@ -17,39 +20,62 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
+    self.spinner.hidden = YES;
+    self.imageView.image = self.photoImage;
+    [self loadWebPageWithAddress: self.url];
 }
+
 - (IBAction)onDoneButtonPressed:(UIBarButtonItem *)sender
 {
-
-    NSData *imageData = UIImagePNGRepresentation(self.photoImage);
+    NSData *imageData = UIImageJPEGRepresentation(self.photoImage, 1.0);
     PFFile *imageFile = [PFFile fileWithName:@"Photo.png" data:imageData];
     [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
      {
          if (!error)
          {
-             NSLog(@"merpppp");
              PFObject *photoObject = [PFObject objectWithClassName:@"Photo"];
              photoObject[@"imageFile"] = imageFile;
-             [photoObject setObject:[PFUser currentUser] forKey:@"createdBy"];
+             [photoObject setObject:[PFUser currentUser] forKey:@"user"];
              [photoObject saveInBackground];
-
-             
+             self.tabBarController.selectedIndex = 1;
          }
      }];
-
 }
 
+#pragma mark WEBVIEW DELEGATES
 
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+// Loads an andress on the webview
+- (void)loadWebPageWithAddress:(NSString *)addressString
+{
+    float width, height;
+    width = 280.0;
+    height = 200.0;
+    NSString *html = [NSString stringWithFormat:@"\
+                      <html><head>\
+                      <style type=\"text/css\">\
+                      body {\
+                      background-color: transparent;\
+                      color: white;\
+                      }\
+                      </style>\
+                      </head><body style=\"margin:0\">\
+                      <embed id=\"yt\" src=\"%@\" type=\"application/x-shockwave-flash\" \
+                      width=\"%0.0f\" height=\"%0.0f\"></embed>\
+                      </body></html>", addressString, width, height];
+    [self.webView loadHTMLString:html baseURL:nil];
 }
-*/
+
+- (void)webViewDidStartLoad:(UIWebView *)webView
+{
+    self.spinner.hidden = NO;
+    [self.spinner startAnimating];
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    [self.spinner stopAnimating];
+    self.spinner.hidden = YES;
+}
 
 @end

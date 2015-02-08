@@ -29,7 +29,7 @@
 - (IBAction)onCameraButtonTapped:(UIButton *)sender
 {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-    UIAlertAction *addURLAction = [UIAlertAction actionWithTitle:@"Add URL to Video" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+    UIAlertAction *addURLAction = [UIAlertAction actionWithTitle:@"Paste Video URL" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         [self performSegueWithIdentifier: @"AddURLSegue" sender: self];
     }];
 //    UIAlertAction *recordVideoAction = [UIAlertAction actionWithTitle:@"Record Video" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
@@ -63,7 +63,7 @@
         vc.photoImage = self.photoImage;
         vc.url = self.addedVideoURL;
     }
-    else if ([segue.identifier isEqualToString:@"AddURLViewController"])
+    else if ([segue.identifier isEqualToString:@"AddURLSegue"])
     {
         AddURLViewController *auvc = segue.destinationViewController;
         auvc.photoImage = self.photoImage;

@@ -14,7 +14,9 @@
 
 @interface ProfileViewController () <UITableViewDataSource, UITableViewDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 @property UIImage *selectedImage;
-@property NSArray *arrayOfImages;
+@property NSArray *arrayOfImageObjects;
+@property NSMutableArray *arrayOfImages;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -22,12 +24,24 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.arrayOfImages = [NSArray arrayWithObjects:@"http://www.deejstuff.com/images/cherryButterfly.png", @"http://upload.wikimedia.org/wikipedia/commons/9/93/Hemerocallis_lilioasphodelus_flower.jpg", nil];
+
+    self.arrayOfImages = [NSMutableArray new];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [self login];
+    [self getAllPhotosByUser];
+}
+
+- (void)getAllPhotosByUser
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"Photo"];
+    [query whereKey:@"user" equalTo:[PFUser currentUser]];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        self.arrayOfImageObjects = [objects mutableCopy];
+        [self.tableView reloadData];
+    }];
 }
 
 - (void)login {
@@ -66,17 +80,21 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.arrayOfImages.count;
+    return self.arrayOfImageObjects.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-    NSURL *url = [NSURL URLWithString:self.arrayOfImages[indexPath.row]];
-    NSData *data = [NSData dataWithContentsOfURL:url];
-    UIImage *image = [UIImage imageWithData:data];
-    self.selectedImage = image;
-    cell.imageView.image = image;
+    PFObject *imageObject = self.arrayOfImageObjects[indexPath.row];
+    PFFile *imageFile = imageObject[@"imageFile"];
+    [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error)
+     {
+         UIImage *image = [UIImage imageWithData:data];
+         cell.imageView.image = image;
+         [self.arrayOfImages addObject:image];
+     }];
+    cell.textLabel.text = @"table";
     return cell;
 }
 
@@ -85,6 +103,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     SelectedVidCardViewController *selectedVCVC = [segue destinationViewController];
+    self.selectedImage = self.arrayOfImages[self.tableView.indexPathForSelectedRow.row];
     selectedVCVC.image = self.selectedImage;
 }
 
