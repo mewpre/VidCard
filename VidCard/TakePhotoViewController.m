@@ -27,6 +27,8 @@
     
     self.imagePicker = [[UIImagePickerController alloc]init];
     self.imagePicker.delegate = self;
+    self.tabBarController.tabBar.translucent = false;
+    self.tabBarController.tabBar.tintColor = [UIColor whiteColor];
 }
 
 - (void)viewWillAppear:(BOOL)animated

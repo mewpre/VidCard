@@ -10,13 +10,18 @@
 #import "SelectedVidCardViewController.h"
 #import <Parse/Parse.h>
 #import "MyLoginViewController.h"
+#import "CustomCollectionViewCell.h"
 
 
-@interface ProfileViewController () <UITableViewDataSource, UITableViewDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
+@interface ProfileViewController () <UICollectionViewDataSource, UICollectionViewDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property UIImage *selectedImage;
 @property NSArray *arrayOfImageObjects;
 @property NSMutableArray *arrayOfImages;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UIImageView *profileBackgroundImage;
+@property (weak, nonatomic) IBOutlet UILabel *profileNameLabel;
+@property UIImagePickerController *imagePicker;
 
 @end
 
@@ -25,8 +30,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    self.imagePicker = [[UIImagePickerController alloc]init];
+    self.imagePicker.delegate = self;
     self.arrayOfImages = [NSMutableArray new];
+    self.profileNameLabel.text = [PFUser currentUser].username;
     [self getAllPhotosByUser];
+    self.tabBarController.tabBar.translucent = false;
+    self.tabBarController.tabBar.tintColor = [UIColor whiteColor];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -41,7 +51,17 @@
     [query whereKey:@"user" equalTo:[PFUser currentUser]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         self.arrayOfImageObjects = [objects mutableCopy];
-        [self.tableView reloadData];
+        if (!self.arrayOfImages.count) {
+            for (PFObject *imageObject in objects) {
+                PFFile *imageFile = imageObject[@"imageFile"];
+                [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error)
+                 {
+                     UIImage *image = [UIImage imageWithData:data];
+                     [self.arrayOfImages addObject:image];
+                     [self.collectionView reloadData];
+                 }];
+            }
+        }
     }];
 }
 
@@ -61,6 +81,32 @@
     }
 }
 
+- (IBAction)onProfilePictureTapped:(UITapGestureRecognizer *)sender
+{
+    [self.imagePicker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+    [self presentViewController:self.imagePicker animated:YES completion:nil];
+}
+
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage *image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+    self.profileImageView.image = image;
+    self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width / 2;
+    self.profileImageView.clipsToBounds = YES;
+    [self dismissViewControllerAnimated:YES completion:nil];
+    NSData *imageData = UIImagePNGRepresentation(self.profileImageView.image);
+    PFFile *imageFile = [PFFile fileWithName:@"ProfilePicture.png" data:imageData];
+    [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
+     {
+         if (!error) {
+             PFObject *user = [PFUser currentUser];
+             user[@"profilePhoto"] = imageFile;
+             [user saveInBackground];
+         }
+     }];
+}
+
+
 -(void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user
 {
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -77,26 +123,18 @@
     [self login];
 }
 
-#pragma mark TABLE VIEW
+#pragma mark COLLECTION VIEW
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return self.arrayOfImageObjects.count;
+    CustomCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ProfileCell" forIndexPath:indexPath];
+    cell.imageView.image = self.arrayOfImages[indexPath.row];
+    return cell;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-    PFObject *imageObject = self.arrayOfImageObjects[indexPath.row];
-    PFFile *imageFile = imageObject[@"imageFile"];
-    [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error)
-     {
-         UIImage *image = [UIImage imageWithData:data];
-         cell.imageView.image = image;
-         [self.arrayOfImages addObject:image];
-     }];
-    cell.textLabel.text = @"table";
-    return cell;
+    return self.arrayOfImages.count;
 }
 
 #pragma mark SEGUE
@@ -104,7 +142,9 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     SelectedVidCardViewController *selectedVCVC = [segue destinationViewController];
-    self.selectedImage = self.arrayOfImages[self.tableView.indexPathForSelectedRow.row];
+    UICollectionViewCell *cell = (UICollectionViewCell *)sender;
+    NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
+    self.selectedImage = self.arrayOfImages[indexPath.row];
     selectedVCVC.image = self.selectedImage;
 }
 

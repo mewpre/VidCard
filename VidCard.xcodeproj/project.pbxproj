@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		180327221A878DDF00359D3A /* MyLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 180327211A878DDF00359D3A /* MyLoginViewController.m */; };
+		180327251A87FC4400359D3A /* CustomCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 180327241A87FC4400359D3A /* CustomCollectionViewCell.m */; };
 		18707E7B1A8751290035D78B /* AddURLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18707E7A1A8751290035D78B /* AddURLViewController.m */; };
 		18707E841A87738E0035D78B /* SelectedVidCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18707E831A87738E0035D78B /* SelectedVidCardViewController.m */; };
 		62978FA51A86BCE400E3E3F4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 62978FA41A86BCE400E3E3F4 /* main.m */; };
@@ -64,6 +65,8 @@
 /* Begin PBXFileReference section */
 		180327201A878DDF00359D3A /* MyLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLoginViewController.h; sourceTree = "<group>"; };
 		180327211A878DDF00359D3A /* MyLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLoginViewController.m; sourceTree = "<group>"; };
+		180327231A87FC4400359D3A /* CustomCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCollectionViewCell.h; sourceTree = "<group>"; };
+		180327241A87FC4400359D3A /* CustomCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionViewCell.m; sourceTree = "<group>"; };
 		18707E791A8751290035D78B /* AddURLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddURLViewController.h; sourceTree = "<group>"; };
 		18707E7A1A8751290035D78B /* AddURLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddURLViewController.m; sourceTree = "<group>"; };
 		18707E821A87738E0035D78B /* SelectedVidCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedVidCardViewController.h; sourceTree = "<group>"; };
@@ -249,6 +252,8 @@
 				18707E7A1A8751290035D78B /* AddURLViewController.m */,
 				18707E821A87738E0035D78B /* SelectedVidCardViewController.h */,
 				18707E831A87738E0035D78B /* SelectedVidCardViewController.m */,
+				180327231A87FC4400359D3A /* CustomCollectionViewCell.h */,
+				180327241A87FC4400359D3A /* CustomCollectionViewCell.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -400,6 +405,7 @@
 				180327221A878DDF00359D3A /* MyLoginViewController.m in Sources */,
 				62978FAB1A86BCE400E3E3F4 /* VidCard.xcdatamodeld in Sources */,
 				62978FF01A86E0D100E3E3F4 /* ProfileViewController.m in Sources */,
+				180327251A87FC4400359D3A /* CustomCollectionViewCell.m in Sources */,
 				62978FA81A86BCE400E3E3F4 /* AppDelegate.m in Sources */,
 				18707E841A87738E0035D78B /* SelectedVidCardViewController.m in Sources */,
 				62978FA51A86BCE400E3E3F4 /* main.m in Sources */,
