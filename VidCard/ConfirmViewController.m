@@ -35,6 +35,8 @@
 - (IBAction)onDoneButtonPressed:(UIBarButtonItem *)sender
 {
     NSString *name = @"Watermark from iOS";
+    self.spinner.hidden = NO;
+    [self.spinner startAnimating];
     [self.lpSession createWatermark:name destination:[NSURL URLWithString: self.url] image:self.photoImage completionHandler:^(UIImage *watermarkedImage, NSError *error)
     {
         if (!error)
@@ -55,6 +57,8 @@
                          [videoObject saveInBackground];
                      }];
                      self.tabBarController.selectedIndex = 1;
+                     [self.spinner stopAnimating];
+                     self.spinner.hidden = YES;
                  }
              }];
         }
