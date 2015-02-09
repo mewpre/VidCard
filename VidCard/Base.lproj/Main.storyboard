@@ -407,20 +407,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ombreWall" translatesAutoresizingMaskIntoConstraints="NO" id="xIZ-yk-VYS">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="6FY-iG-yQV"/>
+                                    <constraint firstAttribute="height" constant="568" id="RGu-gW-r6O"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IkY-Bw-T3L">
+                                <rect key="frame" x="0.0" y="64" width="320" height="320"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8X7-Uz-3pM">
-                                <rect key="frame" x="144" y="409" width="32" height="30"/>
-                                <state key="normal" title="Print">
+                                <rect key="frame" x="127" y="409" width="67" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="37"/>
+                                <state key="normal" title="📠">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="onPrintButtonPressed:" destination="2NG-Sd-fEI" eventType="touchUpInside" id="vae-hl-jen"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IkY-Bw-T3L">
-                                <rect key="frame" x="0.0" y="64" width="320" height="320"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xIZ-yk-VYS" firstAttribute="top" secondItem="kuF-Zn-SXx" secondAttribute="top" id="6Dz-ZX-yeV"/>
+                            <constraint firstAttribute="bottom" secondItem="xIZ-yk-VYS" secondAttribute="bottom" id="9G7-BZ-zMG"/>
+                            <constraint firstItem="xIZ-yk-VYS" firstAttribute="leading" secondItem="kuF-Zn-SXx" secondAttribute="leading" id="Sc4-vH-XOm"/>
+                            <constraint firstAttribute="trailing" secondItem="xIZ-yk-VYS" secondAttribute="trailing" id="xR5-I7-5Xr"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="LwC-pC-xEn"/>
                     <connections>

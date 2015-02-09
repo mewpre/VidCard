@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
+#import "Crittercism.h"
+
 @interface AppDelegate ()
 
 @end
@@ -17,7 +19,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-
+[Crittercism enableWithAppID:@"54d7ee223cf56b9e0457deec"];
     [Parse enableLocalDatastore];
 
     // Initialize Parse.

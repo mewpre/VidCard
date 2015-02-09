@@ -13,6 +13,9 @@
 		18707E841A87738E0035D78B /* SelectedVidCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18707E831A87738E0035D78B /* SelectedVidCardViewController.m */; };
 		606B715C1A881515004DDAB1 /* APIRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 606B715B1A881515004DDAB1 /* APIRequest.m */; };
 		606B715E1A88159C004DDAB1 /* LivePaperSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 606B715D1A88159C004DDAB1 /* LivePaperSDK.framework */; };
+		627B3E371A8832DF00B3438A /* dsym_upload.sh in Resources */ = {isa = PBXBuildFile; fileRef = 627B3E351A8832DF00B3438A /* dsym_upload.sh */; };
+		627B3E381A8832DF00B3438A /* libCrittercism_v5_0_7.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 627B3E361A8832DF00B3438A /* libCrittercism_v5_0_7.a */; };
+		627B3E3A1A885B7D00B3438A /* Images-2.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 627B3E391A885B7D00B3438A /* Images-2.xcassets */; };
 		62978FA51A86BCE400E3E3F4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 62978FA41A86BCE400E3E3F4 /* main.m */; };
 		62978FA81A86BCE400E3E3F4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 62978FA71A86BCE400E3E3F4 /* AppDelegate.m */; };
 		62978FAB1A86BCE400E3E3F4 /* VidCard.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 62978FA91A86BCE400E3E3F4 /* VidCard.xcdatamodeld */; };
@@ -76,6 +79,12 @@
 		606B715A1A881515004DDAB1 /* APIRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIRequest.h; sourceTree = "<group>"; };
 		606B715B1A881515004DDAB1 /* APIRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIRequest.m; sourceTree = "<group>"; };
 		606B715D1A88159C004DDAB1 /* LivePaperSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LivePaperSDK.framework; path = ../VidCard/LivePaperSDK.framework; sourceTree = "<group>"; };
+		627B3E321A8832DF00B3438A /* CRFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRFilter.h; sourceTree = "<group>"; };
+		627B3E331A8832DF00B3438A /* Crittercism.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Crittercism.h; sourceTree = "<group>"; };
+		627B3E341A8832DF00B3438A /* CrittercismDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrittercismDelegate.h; sourceTree = "<group>"; };
+		627B3E351A8832DF00B3438A /* dsym_upload.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = dsym_upload.sh; sourceTree = "<group>"; };
+		627B3E361A8832DF00B3438A /* libCrittercism_v5_0_7.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCrittercism_v5_0_7.a; sourceTree = "<group>"; };
+		627B3E391A885B7D00B3438A /* Images-2.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Images-2.xcassets"; sourceTree = "<group>"; };
 		62978F9F1A86BCE400E3E3F4 /* VidCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VidCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62978FA31A86BCE400E3E3F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		62978FA41A86BCE400E3E3F4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -150,6 +159,7 @@
 				62978FFD1A877BA300E3E3F4 /* AdSupport.framework in Frameworks */,
 				62978FFB1A877B9800E3E3F4 /* Accounts.framework in Frameworks */,
 				6297901A1A877C2C00E3E3F4 /* Bolts.framework in Frameworks */,
+				627B3E381A8832DF00B3438A /* libCrittercism_v5_0_7.a in Frameworks */,
 				62978FF91A877B9100E3E3F4 /* AudioToolbox.framework in Frameworks */,
 				62978FF71A877B7E00E3E3F4 /* ParseUI.framework in Frameworks */,
 				62978FE01A86C7B000E3E3F4 /* MediaPlayer.framework in Frameworks */,
@@ -173,9 +183,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		627B3E311A8832DF00B3438A /* CrittercismSDK */ = {
+			isa = PBXGroup;
+			children = (
+				627B3E321A8832DF00B3438A /* CRFilter.h */,
+				627B3E331A8832DF00B3438A /* Crittercism.h */,
+				627B3E341A8832DF00B3438A /* CrittercismDelegate.h */,
+				627B3E351A8832DF00B3438A /* dsym_upload.sh */,
+				627B3E361A8832DF00B3438A /* libCrittercism_v5_0_7.a */,
+			);
+			path = CrittercismSDK;
+			sourceTree = "<group>";
+		};
 		62978F961A86BCE300E3E3F4 = {
 			isa = PBXGroup;
 			children = (
+				627B3E311A8832DF00B3438A /* CrittercismSDK */,
 				62978FF11A877B7E00E3E3F4 /* parse-library-1 */,
 				62978FA11A86BCE400E3E3F4 /* VidCard */,
 				62978FBE1A86BCE400E3E3F4 /* VidCardTests */,
@@ -204,6 +227,7 @@
 				62978FB21A86BCE400E3E3F4 /* Images.xcassets */,
 				62978FB41A86BCE400E3E3F4 /* LaunchScreen.xib */,
 				62978FA91A86BCE400E3E3F4 /* VidCard.xcdatamodeld */,
+				627B3E391A885B7D00B3438A /* Images-2.xcassets */,
 				62978FA21A86BCE400E3E3F4 /* Supporting Files */,
 			);
 			path = VidCard;
@@ -390,8 +414,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				627B3E371A8832DF00B3438A /* dsym_upload.sh in Resources */,
 				62978FB11A86BCE400E3E3F4 /* Main.storyboard in Resources */,
 				62978FB61A86BCE400E3E3F4 /* LaunchScreen.xib in Resources */,
+				627B3E3A1A885B7D00B3438A /* Images-2.xcassets in Resources */,
 				62978FB31A86BCE400E3E3F4 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -551,6 +577,10 @@
 				);
 				INFOPLIST_FILE = VidCard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/CrittercismSDK",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -567,6 +597,10 @@
 				);
 				INFOPLIST_FILE = VidCard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/CrittercismSDK",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

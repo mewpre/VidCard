@@ -9,6 +9,7 @@
 #import "ConfirmViewController.h"
 #import <Parse/Parse.h>
 #import <LivePaperSDK/LivePaperSDK.h>
+#import "Crittercism.h"
 
 #define CLIENT_ID       @"a57exuakm5c0rhubs6mb7e3a4ptrh1c3"
 #define CLIENT_SECRET   @"CKwaHbrPyXrdPmowosAg7zKPvNxqW3lh"
@@ -41,6 +42,7 @@
     {
         if (!error)
         {
+            [Crittercism leaveBreadcrumb:@"User tapped start button"];
             NSData *imageData = UIImageJPEGRepresentation(watermarkedImage, 1.0);
             PFFile *imageFile = [PFFile fileWithName:@"Photo.png" data:imageData];
             [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)

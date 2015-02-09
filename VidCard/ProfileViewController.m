@@ -29,12 +29,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationController.title = [PFUser currentUser].username;
 
     self.imagePicker = [[UIImagePickerController alloc]init];
     self.imagePicker.delegate = self;
     self.arrayOfImages = [NSMutableArray new];
     self.profileNameLabel.text = [PFUser currentUser].username;
     [self getAllPhotosByUser];
+    if ([PFUser currentUser])
+    {
+        PFFile *imagefile = [[PFUser currentUser] objectForKey:@"profilePhoto"];
+        [imagefile getDataInBackgroundWithBlock:^(NSData *data, NSError *error)
+         {
+             UIImage *image = [UIImage imageWithData:data];
+             self.profileImageView.image = image;
+             self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width / 2;
+             self.profileImageView.clipsToBounds = YES;
+         }];
+    }
+
     self.tabBarController.tabBar.translucent = false;
     self.tabBarController.tabBar.tintColor = [UIColor whiteColor];
 }
