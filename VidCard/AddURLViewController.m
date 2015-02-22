@@ -90,7 +90,6 @@
 }
 
 #pragma mark BUTTON
-
 - (IBAction)onCloseButtonTapped:(UIButton *)sender {
     [self dismissViewControllerAnimated:YES completion:^{
 

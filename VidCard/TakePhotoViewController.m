@@ -39,7 +39,6 @@
 - (void)login {
     if (![PFUser currentUser])
     {
-
         MyLoginViewController *loginViewController = [[MyLoginViewController alloc]init];
         [loginViewController setDelegate:self];
 
@@ -79,10 +78,9 @@
     [alertController addAction:takePhotoAction];
     [alertController addAction:chooseFromPhotos];
     [self presentViewController:alertController animated:YES completion:^{
-
     }];
-
 }
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     RecordVideoViewController *vc = segue.destinationViewController;
@@ -97,8 +95,7 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-#pragma mark LOGIN STUFF
-
+#pragma mark LOGIN
 -(BOOL)logInViewController:(PFLogInViewController *)logInController shouldBeginLogInWithUsername:(NSString *)username password:(NSString *)password
 {
     if (username && password && username.length != 0 && password.length != 0)

@@ -18,7 +18,9 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
-@property(nonatomic, retain) LivePaperSession *lpSession;
+@property LPSession *lpSession;
+
+@property NSDictionary *richPayoffDict;
 
 @end
 
@@ -30,7 +32,7 @@
     self.spinner.hidden = YES;
     self.imageView.image = self.photoImage;
     [self loadWebPageWithAddress: self.url];
-    self.lpSession = [LivePaperSession createSessionWithClientID:CLIENT_ID secret:CLIENT_SECRET];
+    self.lpSession = [LPSession createSessionWithClientID:CLIENT_ID secret:CLIENT_SECRET];
 }
 
 - (IBAction)onDoneButtonPressed:(UIBarButtonItem *)sender
@@ -38,7 +40,8 @@
     NSString *name = @"Watermark from iOS";
     self.spinner.hidden = NO;
     [self.spinner startAnimating];
-    [self.lpSession createWatermark:name destination:[NSURL URLWithString: self.url] image:self.photoImage completionHandler:^(UIImage *watermarkedImage, NSError *error)
+    [self generateRichPayoffDictionary];
+    [self.lpSession createWatermark:name richPayoffData:self.richPayoffDict publicURL:[NSURL URLWithString: self.url] image:self.photoImage completionHandler:^(UIImage *watermarkedImage, NSError *error)
     {
         if (!error)
         {
@@ -52,23 +55,25 @@
                      PFObject *photoObject = [PFObject objectWithClassName:@"Photo"];
                      photoObject[@"imageFile"] = imageFile;
                      [photoObject setObject:[PFUser currentUser] forKey:@"user"];
-                     [photoObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                         PFObject *videoObject = [PFObject objectWithClassName:@"Video"];
-                         videoObject[@"videoURL"] = self.url;
-                         videoObject[@"photo"] = photoObject;
-                         [videoObject saveInBackground];
-                     }];
-                     self.tabBarController.selectedIndex = 1;
+                     [photoObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
+                      {
+                          PFObject *videoObject = [PFObject objectWithClassName:@"Video"];
+                          videoObject[@"videoURL"] = self.url;
+                          videoObject[@"photo"] = photoObject;
+                          [videoObject saveInBackground];
+                      }];
                      [self.spinner stopAnimating];
                      self.spinner.hidden = YES;
+                     [self.navigationController popToRootViewControllerAnimated: NO];
+                     self.tabBarController.selectedIndex = 1;
                  }
              }];
         }
+
     }];
 }
 
 #pragma mark WEBVIEW DELEGATES
-
 // Loads an andress on the webview
 - (void)loadWebPageWithAddress:(NSString *)addressString
 {
@@ -100,6 +105,35 @@
 {
     [self.spinner stopAnimating];
     self.spinner.hidden = YES;
+}
+
+- (void)generateRichPayoffDictionary
+{
+    self.richPayoffDict = @{
+                            @"type" : @"content action layout",
+                            @"version" : @"1",
+                            @"data" : @{
+                                    @"content" : @{
+                                            @"type": @"video",
+                                            @"label": @"VidCard video",
+                                            @"analyticId": @"UA-38834658-3",
+                                            @"data": @{
+                                                    @"URL": self.url,
+                                                    @"fullscreen": @true,
+                                                    @"autoplay": @true
+                                                    }
+                                            },
+
+                                    @"actions" : @[
+                                            @{
+                                                @"type" : @"share",
+                                                @"label" : @"Share!",
+                                                @"icon" : @{ @"id" : @"527" },
+                                                @"data" : @{ @"URL" : [NSString stringWithFormat: @"Check out this Vidcard video! %@", self.url]}
+                                                }
+                                            ]
+                                    }
+                            };
 }
 
 @end

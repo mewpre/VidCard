@@ -15,9 +15,9 @@
 
 @implementation SelectedVidCardViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-
 }
 
 - (void)viewWillAppear:(BOOL)animated

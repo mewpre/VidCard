@@ -7,4 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <LivePaperSDK/LivePaperSession.h>
+#import <LivePaperSDK/LPSession.h>
+#import <LivePaperSDK/LPTrigger.h>
+#import <LivePaperSDK/LPPayoff.h>
+#import <LivePaperSDK/LPLink.h>

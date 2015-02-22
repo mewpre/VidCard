@@ -21,8 +21,11 @@
 @end
 
 @implementation RecordVideoViewController
-
-- (void)viewDidLoad {
+/** 
+ TODO: Updated SDK requires that video URLS lead to .mp4 files, so we should add functionality to record videos as .mp4s, upload them somewhere, and retrieve the url
+**/
+- (void)viewDidLoad
+{
     [super viewDidLoad];
 }
 
@@ -71,7 +74,6 @@
 }
 
 #pragma mark UNWIND
-
 // Gets the newly added url from the modal that popped up
 - (IBAction)unwindFromAddURL:(UIStoryboardSegue *)segue
 {

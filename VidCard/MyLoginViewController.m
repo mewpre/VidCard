@@ -14,14 +14,13 @@
 
 @implementation MyLoginViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
 
     [self.logInView.dismissButton setHidden:YES];
 
     [self.logInView setBackgroundColor:[UIColor blackColor]];
-
-//    [self.logInView setLogo:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"AudioGram"]]];
 }
 
 

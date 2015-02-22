@@ -78,10 +78,10 @@
     }];
 }
 
-- (void)login {
+- (void)login
+{
     if (![PFUser currentUser])
     {
-
         MyLoginViewController *loginViewController = [[MyLoginViewController alloc]init];
         [loginViewController setDelegate:self];
 
@@ -137,7 +137,6 @@
 }
 
 #pragma mark COLLECTION VIEW
-
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     CustomCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ProfileCell" forIndexPath:indexPath];
@@ -151,7 +150,6 @@
 }
 
 #pragma mark SEGUE
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     SelectedVidCardViewController *selectedVCVC = [segue destinationViewController];
