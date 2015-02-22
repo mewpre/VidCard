@@ -12,7 +12,6 @@
 		18707E7B1A8751290035D78B /* AddURLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18707E7A1A8751290035D78B /* AddURLViewController.m */; };
 		18707E841A87738E0035D78B /* SelectedVidCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18707E831A87738E0035D78B /* SelectedVidCardViewController.m */; };
 		603822161A992919003A8544 /* LivePaperSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 603822151A992919003A8544 /* LivePaperSDK.framework */; };
-		606B715C1A881515004DDAB1 /* APIRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 606B715B1A881515004DDAB1 /* APIRequest.m */; };
 		627B3E371A8832DF00B3438A /* dsym_upload.sh in Resources */ = {isa = PBXBuildFile; fileRef = 627B3E351A8832DF00B3438A /* dsym_upload.sh */; };
 		627B3E381A8832DF00B3438A /* libCrittercism_v5_0_7.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 627B3E361A8832DF00B3438A /* libCrittercism_v5_0_7.a */; };
 		62978FA51A86BCE400E3E3F4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 62978FA41A86BCE400E3E3F4 /* main.m */; };
@@ -76,8 +75,6 @@
 		18707E821A87738E0035D78B /* SelectedVidCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedVidCardViewController.h; sourceTree = "<group>"; };
 		18707E831A87738E0035D78B /* SelectedVidCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedVidCardViewController.m; sourceTree = "<group>"; };
 		603822151A992919003A8544 /* LivePaperSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LivePaperSDK.framework; sourceTree = "<group>"; };
-		606B715A1A881515004DDAB1 /* APIRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIRequest.h; sourceTree = "<group>"; };
-		606B715B1A881515004DDAB1 /* APIRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIRequest.m; sourceTree = "<group>"; };
 		627B3E321A8832DF00B3438A /* CRFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRFilter.h; sourceTree = "<group>"; };
 		627B3E331A8832DF00B3438A /* Crittercism.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Crittercism.h; sourceTree = "<group>"; };
 		627B3E341A8832DF00B3438A /* CrittercismDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrittercismDelegate.h; sourceTree = "<group>"; };
@@ -228,8 +225,6 @@
 			children = (
 				62978FA61A86BCE400E3E3F4 /* AppDelegate.h */,
 				62978FA71A86BCE400E3E3F4 /* AppDelegate.m */,
-				606B715A1A881515004DDAB1 /* APIRequest.h */,
-				606B715B1A881515004DDAB1 /* APIRequest.m */,
 				62978FD81A86C5A100E3E3F4 /* ViewControllers */,
 				62978FCB1A86C2F700E3E3F4 /* StoryBoard */,
 				62978FB21A86BCE400E3E3F4 /* Images.xcassets */,
@@ -442,7 +437,6 @@
 			files = (
 				62978FE71A86E0A200E3E3F4 /* TakePhotoViewController.m in Sources */,
 				180327221A878DDF00359D3A /* MyLoginViewController.m in Sources */,
-				606B715C1A881515004DDAB1 /* APIRequest.m in Sources */,
 				62978FAB1A86BCE400E3E3F4 /* VidCard.xcdatamodeld in Sources */,
 				62978FF01A86E0D100E3E3F4 /* ProfileViewController.m in Sources */,
 				180327251A87FC4400359D3A /* CustomCollectionViewCell.m in Sources */,
