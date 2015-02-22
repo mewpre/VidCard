@@ -64,8 +64,8 @@
                       }];
                      [self.spinner stopAnimating];
                      self.spinner.hidden = YES;
-                     [self.navigationController popToRootViewControllerAnimated: NO];
                      self.tabBarController.selectedIndex = 1;
+                     [self.navigationController popToRootViewControllerAnimated: NO];
                  }
              }];
         }
@@ -74,7 +74,7 @@
 }
 
 #pragma mark WEBVIEW DELEGATES
-// Loads an andress on the webview
+// Loads an address on the webview
 - (void)loadWebPageWithAddress:(NSString *)addressString
 {
     float width, height;
